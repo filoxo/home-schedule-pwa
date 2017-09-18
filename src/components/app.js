@@ -35,10 +35,6 @@ export default class App extends Component {
     this.currentUrl = e.url
   }
 
-  toggleDrawer = () => {
-    this.drawer.MDComponent.open = !this.drawer.MDComponent.open
-  }
-
   render() {
     return (
       <div id="app">
