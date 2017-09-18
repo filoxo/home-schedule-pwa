@@ -1,11 +1,11 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
-  "start_url": "/",
+  "name": "Chores List",
+  "short_name": "Chores",
+  "start_url": "/daily",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "theme_color": "#3f51b5",
   "icons": [{
     "src": "/assets/icons/android-chrome-192x192.png",
     "type": "image/png",
