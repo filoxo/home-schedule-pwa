@@ -7,24 +7,10 @@ import Tabs from 'preact-material-components/Tabs'
 import 'preact-material-components/Tabs/style.css'
 
 import ChoreList from '../routes/choreList'
+import choresJson from '../chores'
 
-const choresSrc = {
-  daily: [
-    { text: 'Daily 1', status: false },
-    { text: 'Daily 2', status: false },
-    { text: 'Daily 3', status: false }
-  ],
-  weekly: [
-    { text: 'Weekly 1', status: false },
-    { text: 'Weekly 2', status: false },
-    { text: 'Weekly 3', status: false }
-  ],
-  monthly: [
-    { text: 'monthly 1', status: false },
-    { text: 'monthly 2', status: false },
-    { text: 'monthly 3', status: false }
-  ]
-}
+const choresLs = localStorage.getItem('chores')
+const choresSrc = choresLs === null ? choresJson : JSON.parse(choresLs)
 
 export default class App extends Component {
   constructor() {
@@ -41,7 +27,10 @@ export default class App extends Component {
   }
 
   update(list) {
-    this.setState({ chores: Object.assign({}, this.state.chores, list) })
+    this.setState(
+      { chores: Object.assign({}, this.state.chores, list) },
+      localStorage.setItem('chores', JSON.stringify(this.state.chores))
+    )
   }
 
   render() {
