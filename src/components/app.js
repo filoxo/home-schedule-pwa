@@ -43,17 +43,12 @@ export default class App extends Component {
     return (
       <div id="app">
         <Toolbar className="toolbar">
-          <Toolbar.Row>
-            <Toolbar.Section align-start={true}>
-              <Toolbar.Title>Cleaning Schedule</Toolbar.Title>
-            </Toolbar.Section>
-          </Toolbar.Row>
+          <Tabs indicator-accent={true}>
+            <Tabs.Tab href="/daily">Daily</Tabs.Tab>
+            <Tabs.Tab href="/weekly">Weekly</Tabs.Tab>
+            <Tabs.Tab href="/monthly">Monthly</Tabs.Tab>
+          </Tabs>
         </Toolbar>
-        <Tabs indicator-accent={true}>
-          <Tabs.Tab href="/daily">Daily</Tabs.Tab>
-          <Tabs.Tab href="/weekly">Weekly</Tabs.Tab>
-          <Tabs.Tab href="/monthly">Monthly</Tabs.Tab>
-        </Tabs>
         <Router onChange={this.handleRoute}>
           <ChoreList
             path="/daily"
