@@ -6,6 +6,26 @@ import 'preact-material-components/Toolbar/style.css'
 import Tabs from 'preact-material-components/Tabs'
 import 'preact-material-components/Tabs/style.css'
 
+import ChoreList from '../routes/choreList'
+
+const chores = {
+  daily: [
+    { text: 'Daily 1', status: false },
+    { text: 'Daily 2', status: false },
+    { text: 'Daily 3', status: false }
+  ],
+  weekly: [
+    { text: 'Weekly 1', status: false },
+    { text: 'Weekly 2', status: false },
+    { text: 'Weekly 3', status: false }
+  ],
+  monthly: [
+    { text: 'monthly 1', status: false },
+    { text: 'monthly 2', status: false },
+    { text: 'monthly 3', status: false }
+  ]
+}
+
 export default class App extends Component {
   /** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
@@ -35,11 +55,18 @@ export default class App extends Component {
           <Tabs.Tab href="/monthly">Monthly</Tabs.Tab>
         </Tabs>
         <Router onChange={this.handleRoute}>
-          <div path="/daily" default>
-            daily
-          </div>
-          <div path="/weekly">weekly</div>
-          <div path="/monthly">monthly</div>
+          <ChoreList
+            path="/daily"
+            default
+            list={chores.daily}
+            listPrefix="daily"
+          />
+          <ChoreList path="/weekly" list={chores.weekly} listPrefix="weekly" />
+          <ChoreList
+            path="/monthly"
+            list={chores.monthly}
+            listPrefix="monthly"
+          />
         </Router>
       </div>
     )
