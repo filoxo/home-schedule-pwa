@@ -21,3 +21,7 @@ body {
 #app {
 	height: 100%;
 }
+
+.mdc-toolbar__row {
+    min-height: 0 !important;
+}
