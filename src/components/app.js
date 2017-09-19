@@ -9,7 +9,8 @@ import 'preact-material-components/Tabs/style.css'
 import ChoreList from '../routes/choreList'
 import choresJson from '../chores'
 
-const choresLs = localStorage.getItem('chores')
+const choresLs =
+  typeof window !== 'undefined' ? localStorage.getItem('chores') : null
 const choresSrc = choresLs === null ? choresJson : JSON.parse(choresLs)
 
 export default class App extends Component {
